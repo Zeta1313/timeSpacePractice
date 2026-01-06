@@ -66,9 +66,25 @@ public class Practice {
    * @return the integer that shows up most commonly
    */
   public static int mostCommonTimeEfficient(int[] nums) {
-    // TODO: Complete this method with an implementation that runs
-    // in O(n) time. n = nums.size()
-    return -1;
+      int largest = 0;
+      HashMap<Integer, Integer> intlist = new HashMap<>();
+      for (int x : nums) {
+        if (intlist.containsKey(x)) {
+          intlist.put(x, (intlist.get(x)+1));
+          if (intlist.get(x) > largest) {
+            largest = intlist.get(x);
+          }
+        }
+        else {
+          intlist.put(x, 1);
+        }
+      }
+      for (int y : intlist.keySet()) {
+        if (intlist.get(y) == largest) {
+          return y;
+        }
+      }
+      return 0;
   }
 
   /**

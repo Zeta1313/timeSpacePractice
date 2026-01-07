@@ -106,20 +106,25 @@ public class Practice {
     // TODO: Complete this method with an implementation that runs
     // in O(1) space.
 
+    // initialize variables
     int mostCommon = nums[0];
     int largest = 0;
 
+    // loop through each num in nums
     for (int i = 0; i < nums.length; i++) {
+      // get the current num and initialize current count
       int currentNum = nums[i];
       int currentCount = 0;
 
+      // check the rest of the array, increment current count if found 
       for (int g = 0; g < nums.length; g++) {
         if (nums[g] == currentNum) {
           currentCount++;
         }
       }
 
-      if (currentCount >= largest) {
+      // update variables, if our count is greater than the largest count
+      if (currentCount > largest) {
         largest = currentCount;
         mostCommon = currentNum;
       }
